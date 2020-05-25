@@ -1,5 +1,5 @@
 server:
-  port: 8100
+  port: 8762
 spring:
   redis:
     host: 127.0.0.1
