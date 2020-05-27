@@ -14,6 +14,7 @@
 
     <modules>
         <module>service-api-util</module>
+        <module>service-api-xxl-job-core</module>
     </modules>
 
     <dependencies>
