@@ -18,6 +18,7 @@
         <module>service-config</module>
         <module>service-gateway</module>
         <module>service-auth</module>
+        <module>service-xxl-job</module>
     </modules>
 
     <dependencies>
