@@ -1,4 +1,4 @@
-package com.forezp.servicetimer.config;
+package com.forezp.config;
 
 import com.forezp.serviceapixxljobcore.executor.impl.XxlJobSpringExecutor;
 import org.slf4j.Logger;

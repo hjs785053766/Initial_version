@@ -1,13 +1,13 @@
-package com.forezp.servicetimer;
+package com.forezp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceTimerApplication {
+public class BusinessTimerClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceTimerApplication.class, args);
+        SpringApplication.run(BusinessTimerClientApplication.class, args);
     }
 
 }

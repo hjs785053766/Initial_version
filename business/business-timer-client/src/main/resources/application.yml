@@ -1,6 +1,13 @@
 # web port
 server:
-  port: 8765
+  port: 8004
+spring:
+  application:
+    name: business-timer-client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
   # no web
   #spring.main.web-environment=false
   # log config
@@ -12,5 +19,4 @@ xxl:
     admin:
       addresses: http://192.168.79.130:8760/xxl-job-admin
     executor:
-      appname: service-timer
-
+      appname: business-timer-client

@@ -1,8 +1,8 @@
-package com.forezp.servicetimer.jobhandler;
+package com.forezp.jobhandler;
 
-import com.forezp.serviceapixxljobcore.handler.annotation.XxlJob;
 import com.forezp.serviceapixxljobcore.biz.model.ReturnT;
 import com.forezp.serviceapixxljobcore.handler.IJobHandler;
+import com.forezp.serviceapixxljobcore.handler.annotation.XxlJob;
 import com.forezp.serviceapixxljobcore.log.XxlJobLogger;
 import com.forezp.serviceapixxljobcore.util.ShardingUtil;
 import org.slf4j.Logger;

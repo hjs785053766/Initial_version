@@ -18,7 +18,6 @@
         <module>service-config</module>
         <module>service-gateway</module>
         <module>service-auth</module>
-        <module>service-timer</module>
     </modules>
 
     <dependencies>

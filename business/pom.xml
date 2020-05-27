@@ -17,6 +17,7 @@
         <module>business-config-client</module>
         <module>business-modular-hi</module>
         <module>business-modular-feign</module>
+        <module>business-timer-client</module>
     </modules>
 
     <dependencies>
