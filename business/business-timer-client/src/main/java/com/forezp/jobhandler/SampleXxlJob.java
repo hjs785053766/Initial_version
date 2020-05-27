@@ -1,10 +1,10 @@
 package com.forezp.jobhandler;
 
-import com.forezp.serviceapixxljobcore.biz.model.ReturnT;
-import com.forezp.serviceapixxljobcore.handler.IJobHandler;
-import com.forezp.serviceapixxljobcore.handler.annotation.XxlJob;
-import com.forezp.serviceapixxljobcore.log.XxlJobLogger;
-import com.forezp.serviceapixxljobcore.util.ShardingUtil;
+import com.forezp.biz.model.ReturnT;
+import com.forezp.handler.IJobHandler;
+import com.forezp.handler.annotation.XxlJob;
+import com.forezp.log.XxlJobLogger;
+import com.forezp.util.ShardingUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
