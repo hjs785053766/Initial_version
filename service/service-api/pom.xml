@@ -16,9 +16,24 @@
         <module>service-api-util</module>
         <module>service-api-xxl-job-core</module>
         <module>service-api-canal</module>
+        <module>service-api-auth</module>
     </modules>
 
     <dependencies>
 
     </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <!-- xml放在java目录下-->
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/java/com/forezp/api/mapper</directory>
+            </resource>
+        </resources>
+    </build>
 </project>
