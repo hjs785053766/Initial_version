@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.forezp.api.mapper.AuntMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.forezp.api.entity.Aunt">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="xcxwechat_openid" property="xcxwechatOpenid" />
+        <result column="wechat_openid" property="wechatOpenid" />
+        <result column="phone" property="phone" />
+        <result column="score" property="score" />
+        <result column="x_axis" property="xAxis" />
+        <result column="y_axis" property="yAxis" />
+        <result column="state" property="state" />
+        <result column="automatic" property="automatic" />
+        <result column="administrator_id" property="administratorId" />
+        <result column="FrontofIDcard" property="FrontofIDcard" />
+        <result column="ReverseofIDcard" property="ReverseofIDcard" />
+        <result column="BankcardNo" property="BankcardNo" />
+        <result column="Bankcardholder" property="Bankcardholder" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, xcxwechat_openid, wechat_openid, phone, score, x_axis, y_axis, state, automatic, administrator_id, FrontofIDcard, ReverseofIDcard, BankcardNo, Bankcardholder
+    </sql>
+
+</mapper>

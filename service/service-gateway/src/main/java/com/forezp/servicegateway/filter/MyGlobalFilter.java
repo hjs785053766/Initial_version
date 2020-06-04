@@ -1,35 +1,30 @@
 package com.forezp.servicegateway.filter;
 
 import com.alibaba.fastjson.JSON;
+import com.forezp.servicegateway.utils.EncryptUtil;
 import com.forezp.servicegateway.utils.RedisUtil;
 import io.jsonwebtoken.*;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.RSAUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
-import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
+import javax.xml.crypto.Data;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 /**
@@ -59,7 +54,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String url = exchange.getRequest().getURI().getPath();
-
+        System.out.println(url);
         //判断是否是Knife4j请求
         boolean urlJudge = url.contains("/v2/api-docs");
         if (urlJudge) {
@@ -85,6 +80,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
                 return returnAuthFail(exchange, 0);
             }
             redisKey = claims.get("key").toString();
+            redisUtil.setDataBase(0);
             String userJson = redisUtil.get(redisKey).toString();
             try {
                 Map mapTypes = JSON.parseObject(userJson);
@@ -95,14 +91,21 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
                     URI uri = oldRequest.getURI();
                     ServerHttpRequest.Builder builder = oldRequest.mutate().uri(uri);
                     //重写请求头部
-                    builder.header("username", userMap.get("username").toString());
+                    EncryptUtil des = EncryptUtil.getEncryptUtil("b068931cc450442b63f5b3d276ea4297", "utf-8");
+                    String name = des.encode(userMap.get("name").toString());
+                    builder.header("name", name);
+                    builder.header("url", url);
+                    builder.header("id", userMap.get("id").toString());
+                    builder.header("time", new Date().getTime() / 1000 + "");
                     //重写请求头部
                     ServerHttpRequest newRequest = builder.build();
+
                     return chain.filter(exchange.mutate().request(newRequest).build());
                 } else {
                     return returnAuthFail(exchange, 1);
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 return returnAuthFail(exchange, 0);
             }
         }
@@ -115,13 +118,13 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
      * @return
      */
     private Mono<Void> returnAuthFail(ServerWebExchange exchange, int type) {
-        String url = "http://127.0.0.1:8100/error";
+        String url = "http://127.0.0.1:8762/error";
         switch (type) {
             case 0:
-                url = "http://127.0.0.1:8100/error";
+                url = "http://127.0.0.1:8762/error";
                 break;
             case 1:
-                url = "http://127.0.0.1:8100/jurisdiction";
+                url = "http://127.0.0.1:8762/jurisdiction";
                 break;
         }
         ServerHttpResponse response = exchange.getResponse();

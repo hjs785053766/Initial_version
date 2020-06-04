@@ -18,6 +18,12 @@
     </modules>
 
     <dependencies>
+        <!-- mybatis plus 代码生成器依赖 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.1.0</version>
+        </dependency>
         <!-- service-api -->
         <dependency>
             <groupId>com.forezp</groupId>

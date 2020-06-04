@@ -12,10 +12,10 @@ public class HiController implements HiServic {
     @Value("${server.port}")
     String port;
 
-
     @Override
     @ApiOperation("查询当前请求端口")
     public String home(String name) {
         return "hi " + name + " ,i am from port:" + port;
     }
+
 }

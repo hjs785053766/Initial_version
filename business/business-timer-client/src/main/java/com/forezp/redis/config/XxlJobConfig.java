@@ -1,4 +1,4 @@
-package com.forezp.config;
+package com.forezp.redis.config;
 
 import com.forezp.executor.impl.XxlJobSpringExecutor;
 import org.slf4j.Logger;

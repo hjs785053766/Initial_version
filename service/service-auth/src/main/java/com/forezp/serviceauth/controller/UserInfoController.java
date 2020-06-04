@@ -1,10 +1,13 @@
 package com.forezp.serviceauth.controller;
 
+import com.forezp.serviceauth.entity.SysRole;
 import com.forezp.serviceauth.entity.UserInfo;
 import com.forezp.serviceauth.service.UserInfoService;
 import com.forezp.serviceauth.utils.JWTUtils;
 import com.forezp.util.Notice;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;

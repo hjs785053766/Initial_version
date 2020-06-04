@@ -10,5 +10,10 @@
 
     <artifactId>service-api-util</artifactId>
     <dependencies>
+        <!--feign架包-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 </project>

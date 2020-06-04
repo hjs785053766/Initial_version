@@ -43,6 +43,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
         </dependency>
+        <!--springboot中的redis依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
         <!--生成接口文档-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -78,16 +88,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--springboot中的redis依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
-            <version>2.6.1</version>
-        </dependency>
+
 
         <!-- Java 对象转换为 JSON -->
         <dependency>
@@ -95,7 +96,6 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.40</version>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
