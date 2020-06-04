@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.forezp.api.mapper.UserInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.forezp.api.entity.user_info.UserInfo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="username" property="username" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, password, username
+    </sql>
+
+    <resultMap id="SignInMap" type="com.forezp.api.entity.user_info.UserInfoTwo">
+        <id column="user_info_id" property="id" />
+        <result column="user_info_name" property="name" />
+        <result column="password" property="password" />
+        <result column="username" property="username" />
+        <collection property="sysRoleTwoList"
+                    javaType="java.util.List" ofType="com.forezp.api.entity.sys_role.SysRoleTwo">
+            <result column="sys_role_id" property="id" />
+            <result column="sys_role_description" property="description" />
+            <result column="sys_role_name" property="name" />
+            <collection property="sysPermissionList"
+                        javaType="java.util.List" ofType="com.forezp.api.entity.sys_permission.SysPermission">
+                <result column="sys_permission_id" property="id" />
+                <result column="sys_permission_description" property="description" />
+                <result column="url" property="url" />
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="SignIn" resultMap="SignInMap">
+    SELECT
+        user_info.id AS user_info_id,
+        user_info.`name` AS user_info_name,
+        user_info.`password`,
+        user_info.username,
+        sys_role.id AS sys_role_id,
+        sys_role.description AS sys_role_description,
+        sys_role.`name` AS sys_role_name,
+        sys_permission.id AS sys_permission_id,
+        sys_permission.description AS sys_permission_description,
+        sys_permission.url
+    FROM
+        user_info
+        LEFT JOIN sys_user_role ON sys_user_role.uid = user_info.id
+        LEFT JOIN sys_role ON sys_role.id = sys_user_role.role_id
+        LEFT JOIN sys_role_permission ON sys_role_permission.role_id = sys_role.id
+        LEFT JOIN sys_permission ON sys_permission.id = sys_role_permission.permission_id
+    WHERE
+        user_info.username =  #{username,jdbcType=VARCHAR}
+        AND user_info.`password` = #{password,jdbcType=VARCHAR}
+    </select>
+</mapper>
