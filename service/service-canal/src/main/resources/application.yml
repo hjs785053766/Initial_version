@@ -1,0 +1,13 @@
+server:
+  port: 8766
+spring:
+  #数据库连接配置
+  datasource:
+    #数据库连接
+    url: jdbc:mysql://192.168.79.130:3306/sys_journal?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    #用户名密码
+    username: root
+    password: Ai1314520..
+    #驱动包
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
