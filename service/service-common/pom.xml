@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.forezp</groupId>
-    <artifactId>service-auth</artifactId>
+    <artifactId>service-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>service-auth</name>
+    <name>service-common</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -28,47 +28,10 @@
             <artifactId>commons-pool2</artifactId>
             <version>2.6.1</version>
         </dependency>
-
-        <!--jwt依赖-->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-api</artifactId>
-            <version>0.10.7</version>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-            <version>0.10.7</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-jackson</artifactId>
-            <version>0.10.7</version>
-            <scope>runtime</scope>
-        </dependency>
-        <!-- feign -->
-        <dependency>
-            <groupId>com.forezp</groupId>
-            <artifactId>service-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <!-- api -->
-        <dependency>
-            <groupId>com.forezp</groupId>
-            <artifactId>service-api-util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.forezp</groupId>
-            <artifactId>service-api-auth</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>service-auth</finalName>
+        <finalName>service-common</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -84,7 +47,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <fork>true</fork>
-                    <mainClass>com.forezp.api.ServiceAuthApplication</mainClass>
+                    <mainClass>com.forezp.api.ServiceCommonApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>
@@ -97,4 +60,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

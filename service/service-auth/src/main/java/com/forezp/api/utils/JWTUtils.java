@@ -2,10 +2,9 @@ package com.forezp.api.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.forezp.api.entity.sys_permission.SysPermission;
-import com.forezp.api.entity.sys_role.SysRole;
 import com.forezp.api.entity.sys_role.SysRoleTwo;
-import com.forezp.api.entity.user_info.UserInfo;
 import com.forezp.api.entity.user_info.UserInfoTwo;
+import com.forezp.util.EncryptUtil;
 import com.forezp.util.Notice;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

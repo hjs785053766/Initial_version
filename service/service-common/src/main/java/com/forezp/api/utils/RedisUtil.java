@@ -2,7 +2,7 @@ package com.forezp.api.utils;
 
 import com.forezp.api.constants.Status;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.BoundListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -26,6 +26,19 @@ public class RedisUtil {
 
     public RedisUtil(RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
+    }
+
+    /**
+     * 切换库
+     * @param num 库下标
+     */
+    public void setDataBase(int num) {
+        LettuceConnectionFactory connectionFactory = (LettuceConnectionFactory) redisTemplate.getConnectionFactory();
+        if (connectionFactory != null && num != connectionFactory.getDatabase()) {
+            connectionFactory.setDatabase(num);
+            this.redisTemplate.setConnectionFactory(connectionFactory);
+            connectionFactory.resetConnection();
+        }
     }
 
     /**

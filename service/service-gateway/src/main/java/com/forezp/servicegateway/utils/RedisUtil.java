@@ -30,10 +30,6 @@ public class RedisUtil {
         this.redisTemplate = redisTemplate;
     }
 
-//    public void pie(int i) {
-//        setDB4RedisTemplate(redisTemplate, i);
-//    }
-
     public void setDataBase(int num) {
         LettuceConnectionFactory connectionFactory = (LettuceConnectionFactory) redisTemplate.getConnectionFactory();
         if (connectionFactory != null && num != connectionFactory.getDatabase()) {
