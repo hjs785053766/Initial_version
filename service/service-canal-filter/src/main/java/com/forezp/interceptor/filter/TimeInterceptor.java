@@ -2,7 +2,7 @@ package com.forezp.interceptor.filter;
 
 import com.forezp.api.entity.RequestRecord;
 import com.forezp.api.service.able.RequestRecordService;
-import com.forezp.util.EncryptUtil;
+import com.forezp.api.util.EncryptUtil;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

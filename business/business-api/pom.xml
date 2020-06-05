@@ -18,10 +18,10 @@
     </modules>
 
     <dependencies>
-        <!-- service-api -->
+        <!-- feign -->
         <dependency>
             <groupId>com.forezp</groupId>
-            <artifactId>service-api-util</artifactId>
+            <artifactId>service-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

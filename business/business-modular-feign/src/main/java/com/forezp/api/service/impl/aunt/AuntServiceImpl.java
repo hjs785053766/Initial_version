@@ -4,7 +4,7 @@ import com.forezp.api.entity.Aunt;
 import com.forezp.api.mapper.AuntMapper;
 import com.forezp.api.service.AuntService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.forezp.util.Notice;
+import com.forezp.api.util.Notice;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;

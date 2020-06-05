@@ -2,7 +2,7 @@ package com.forezp.api.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.forezp.api.entity.Aunt;
-import com.forezp.util.Notice;
+import com.forezp.api.util.Notice;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**

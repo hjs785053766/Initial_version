@@ -1,4 +1,4 @@
-package com.forezp.api.utils;
+package com.forezp.api.util;
 
 import com.forezp.api.constants.Status;
 import org.springframework.beans.factory.annotation.Autowired;

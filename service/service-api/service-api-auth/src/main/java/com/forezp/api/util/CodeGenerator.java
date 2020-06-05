@@ -1,4 +1,4 @@
-package com.forezp.api.utils;
+package com.forezp.api.util;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;

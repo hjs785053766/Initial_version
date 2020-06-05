@@ -1,4 +1,4 @@
-package com.forezp.util;
+package com.forezp.api.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;

@@ -1,4 +1,4 @@
-package com.forezp.util;
+package com.forezp.api.util;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
