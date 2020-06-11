@@ -53,6 +53,18 @@ spring:
                 fallbackUri: forward:/fallback
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo, Default-Bar
+        - id: service-file-upload
+          uri: lb://SERVICE-FILE-UPLOAD
+          order: 0
+          predicates:
+            - Path=/file/**
+          filters:
+            - name: Hystrix
+              args:
+                name: fallback
+                fallbackUri: forward:/fallback
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Default-Foo, Default-Bar
 eureka:
   client:
     serviceUrl:
